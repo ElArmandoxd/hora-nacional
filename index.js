@@ -1,15 +1,13 @@
 // @ts-nocheck
 const Discord = require('discord.js');
 const express = require('express');
-const app = expres();
+const app = express();
 const config = require('./config/config');
 const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const CronJob = require('cron').CronJob;
 
 const port = 3000;
-
-app.listen(process.env.PORT || port)
 
 client.on('ready', () => {
   console.log(`
@@ -53,4 +51,9 @@ client.on('message', msg => {
   }
 });
 
+//Landing page
+app.get('/',(req,res)=>{
+  res.send('<h1>Hora Nacional!!</h1></br><p>Mexíco despertó cabrones.</p>')
+});
 client.login(config.BOTSECRET);
+app.listen(process.env.PORT || port);
