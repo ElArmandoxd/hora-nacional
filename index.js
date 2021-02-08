@@ -11,7 +11,7 @@ const port = 3000;
 
 client.on('ready', () => {
   console.log(`
-                                  ▄██▄▄
+                        __________▄██▄▄
                         ▄▄█████▄  ██▀
                         ▀█████████▄██▄
                         ▒▒▀██████████▀▒ 
@@ -27,7 +27,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const job = new CronJob('00 00 00 * * 0-6', async function() {
+const job = new CronJob('16 00 00 * * 0-6', async function() {
     console.log('Himno Time!');
     let channel = client.channels.cache.get('807844491977424926');
     let connection = await channel.join();
