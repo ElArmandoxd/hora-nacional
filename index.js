@@ -22,9 +22,9 @@ client.on('ready', () => {
 
                       Hora Nacional v 1.8.0
 
-https://www.youtube.com/channel/UCPK3kiwEbpd2m5oGkA2Go8g
-  `)
-    console.log(`Logged in as ${client.user.tag}!`);
+    https://www.youtube.com/channel/UCPK3kiwEbpd2m5oGkA2Go8g
+  `);
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
 const job = new CronJob('00 00 00 * * 0-6', async function() {
@@ -46,6 +46,7 @@ const job = new CronJob('00 00 00 * * 0-6', async function() {
 
 client.on('message', msg => {
   if (msg.content === 'culo') {
+    console.log(msg.user +" said a bad word!");
     msg.reply('Prestas');
   }
 });
