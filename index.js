@@ -20,14 +20,14 @@ client.on('ready', () => {
           █ █▄░█ █▄▀ █▄█   █▀▀ ▄▀█ █▀█ ▀█▀ ▄▀█ █ █▄░█
           █ █░▀█ █░█ ░█░   █▄▄ █▀█ █▀▀ ░█░ █▀█ █ █░▀█
 
-                      Hora Nacional v 1.8.0
+                      Hora Nacional v 1.10.0
 
     https://www.youtube.com/channel/UCPK3kiwEbpd2m5oGkA2Go8g
   `);
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const job = new CronJob('16 00 00 * * 0-6', async function() {
+const job = new CronJob('22 00 00 * * 0-6', async function() {
     console.log('Himno Time!');
     let channel = client.channels.cache.get('807844491977424926');
     let connection = await channel.join();
@@ -35,6 +35,7 @@ const job = new CronJob('16 00 00 * * 0-6', async function() {
     dispatcher.setVolume(0.5); // half the volume
     dispatcher.on('finish', () => {
         console.log('Finished playing!');
+        dispatcher.destroy();
         console.log("Se acabó el himno");
     });
   }, async function () {
