@@ -25,21 +25,25 @@ client.on('ready', () => {
     https://www.youtube.com/channel/UCPK3kiwEbpd2m5oGkA2Go8g
   `);
   console.log(`Logged in as ${client.user.tag}!`);
+  let channel = client.channels.cache.get('807844491977424926');
+  channel.leave();
 });
 
-const job = new CronJob('22 00 00 * * 0-6', async function() {
+const job = new CronJob('00 00 06 * * 0-6', async function() {
     console.log('Himno Time!');
     let channel = client.channels.cache.get('807844491977424926');
     let connection = await channel.join();
     let dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=cDAjDDdPqvA&ab_channel=HimnosdeM%C3%A9xico', { filter: 'audioonly' }));
-    dispatcher.setVolume(0.5); // half the volume
+    dispatcher.setVolume(0.5); 
     dispatcher.on('finish', () => {
-        console.log('Finished playing!');
         dispatcher.destroy();
         console.log("Se acabó el himno");
+        channel.leave();
     });
   }, async function () {
     console.log("Se acabó el himno");
+    dispatcher.destroy();
+    channel.leave();
     return;
   },
   true,
@@ -47,7 +51,7 @@ const job = new CronJob('22 00 00 * * 0-6', async function() {
 
 client.on('message', msg => {
   if (msg.content === 'culo') {
-    console.log(msg.user +" said a bad word!");
+    console.log("Somebody said a bad word!");
     msg.reply('Prestas');
   }
 });
