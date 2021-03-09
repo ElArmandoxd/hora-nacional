@@ -33,7 +33,7 @@ const job = new CronJob('00 00 06 * * 0-6', async function() {
     console.log('Himno Time!');
     let channel = client.channels.cache.get('807844491977424926');
     let connection = await channel.join();
-    let dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=cDAjDDdPqvA&ab_channel=HimnosdeM%C3%A9xico', { filter: 'audioonly' }));
+    let dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=_yNRCjMpTNg', { filter: 'audioonly' }));
     dispatcher.setVolume(0.5); 
     dispatcher.on('finish', () => {
         dispatcher.destroy();
