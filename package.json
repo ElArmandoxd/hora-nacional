@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "serve": "nodemon main.js",
+    "serve": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Inky Captain",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "cron": "^1.8.2",
     "discord.js": "^12.5.1",
     "express": "^4.17.1",
